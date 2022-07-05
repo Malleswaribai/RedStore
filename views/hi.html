@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input type="num" name="" value="0" id="num" readonly="readonly">
+    <span><button id="increase">+</button></span>
+    <span><button id="decrease">-</button></span>
+    <script>
+        var num = $('#num');
+        $('#increase').click((event)=>{
+           var val = num.val();
+           val++;
+           num.val(val);
+        })
+        $('#decrease').click((event)=>{
+            var val = num.val();
+            if(val>1){
+                val--;
+                num.val(val);
+            }
+        })
+    </script>
+</body>
+</html>

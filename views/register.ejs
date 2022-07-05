@@ -1,0 +1,90 @@
+
+<%- include('header'); -%> 
+<style>
+             
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    overflow-x: hidden;
+    color:rgba(0,0,0,0.8);
+    background-color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url('back_images/rk1 (8).jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top-center;
+    /*background-attachment: fixed;*/
+    height: 72.5rem;
+    width: 100%;
+    margin-bottom: 3rem;
+    
+  }
+  .container{
+    background: rgba(0,0,0,.4);
+    color: rgba(255,255,255,.8);
+    padding: 3rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  form a{
+    color: coral;
+  }
+  .hmm{
+    padding-top: 5rem;
+    margin-top: 5rem;
+  }
+  .container img{
+    width: 12rem;
+  }
+  form input[type="submit"]{
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    padding: .7rem 17.2rem;
+    border-style: none
+  }
+  
+  </style>        
+<body>   
+<div class="container hmm" style="width:500px;">
+
+<div align="center"><img src="images1/logo-white.png"></div>
+<h3 align="center">Register</h3>  
+<br />  
+<form method="post" action="/">  
+     <label>Enter Username</label>  
+     <input type="text" name="username" class="form-control" placeholder="Enter Username" required />  
+     <br />  
+     <label>Enter Password</label>  
+     <input type="password" name="password" class="form-control"  placeholder="Enter Password" required/>  
+     <br /> 
+     <label>Confirm Password</label>  
+     <input type="password" name="confirmpassword" class="form-control"  placeholder="Confirm Password" required/>  
+     <br /> 
+     <label>Enter Email</label>  
+     <input type="email" name="email" class="form-control"  placeholder="Enter email " required/>  
+     <br /> 
+     <p align="center">By registering, you agree to our <a href="#">User Agreement</a> & <a href="#">privacy policy</a></p> 
+     <div class="sub">
+     <input type="submit"  value="Register" class="btn btn-danger" />
+     </div>  
+     <br />  
+     <p align="center">Already registered ? <a href="index.php?action=login">Log In now</a>.</p>  
+</form> 
+</div>
+</body>  
+
+<%- include('footer') %>
