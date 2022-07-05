@@ -241,7 +241,7 @@ nav .logo{
           <tbody>
             <% cart_items.forEach((item)=>{ %>
                     <tr class='cross item' id="<%= item.p_id %>">
-                      <td> <img src='images/<%=item.p_image%>' style='width:100px;height=100px;'> </td>
+                      <td> <img src='images/<%=item.p_image%>' style='width:100px;height:100px;'> </td>
                       <td><%= item.p_name %></td>
                       <td><%= item.p_cat %></td>
                       <td><%= item.p_brand %></td>
@@ -261,7 +261,7 @@ nav .logo{
             <% }); %>
             <div align='center'>
                     <h3>Total Amount: <%= total_price %>   
-                    <a href='/transaction?user_id=<%= user_id %>'> <button class='btn btn-warning' style='align:center;margin-top: 3px;width:40px;height:28px;font-size:15px;margin-left:30px;'> Buy </button></a>
+                    <a href='/transaction'> <button class='btn btn-warning' style='align:center;margin-top: 3px;width:40px;height:28px;font-size:15px;margin-left:30px;'> Buy </button></a>
                     <button class='btn btn-danger' id="clearCart" style='text-align:center;margin-top: 3px;width:150px;height:28px;font-size:15px;'> Remove all items </button>
                     </h3>
             </div>

@@ -25,6 +25,8 @@ app.use('/product' , productPageRouter );
 const loginRouter = require('./Routers/loginRouter');
 app.use('/login' , loginRouter);
 
+const transactionRouter = require('./Routers/transactionRouter');
+app.use('/transaction' , transactionRouter);
 const apiRouter = require('./Routers/api');
 app.use('/api/' , apiRouter);
 

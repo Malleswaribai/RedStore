@@ -8,8 +8,7 @@ router.put('/:id' , (req,res)=>{
         if(err) throw err;
         // here we are making sure that if there is already a item in the cart then we are not adding the same item once again
         if(records.length == 0){
-
-            sql = ` insert into cart (pro_id , user_id,ip_address,qty)values(${product_id} , ${user_id} ," 192.168.56.1",1) `;
+            sql = ` insert into cart (pro_id , user_id,qty)values(${product_id} , ${user_id},1) `;
             mysql.query(sql);
         }
     });
