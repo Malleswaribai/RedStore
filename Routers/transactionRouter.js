@@ -11,6 +11,7 @@ router.get('/' , middleware , (req,res,next)=>{
 
 // create table order_info(
 // 	order_id varchar(20),
+//     transaction_id varchar(31),
 //     total_price int ,
 //     user_id int,
 //     Address varchar(255),
@@ -30,7 +31,8 @@ router.get('/' , middleware , (req,res,next)=>{
 router.post('/' , (req,res)=>{
     var user_id = req.session.user.user_id; 
     const data = req.body;
-    var order_id =  generateHash();
+    var order_id =  generateHash(20);
+    var transaction_id = generateHash(30);
     var sql = `select qty,(qty)*( p_price) as p_price ,pro_id as p_id from product,cart where pro_id=p_id and  user_id = ${user_id}`;
     mysql.query(sql , (err , cart)=>{
         
@@ -41,7 +43,7 @@ router.post('/' , (req,res)=>{
         });
         console.log(order_id);
         var Shipping_Add = `${data. street_address} , ${data.city} , ${data.postcode}`;
-        sql = `insert into order_info values("${order_id}" , ${total_price}, ${user_id},"${Shipping_Add}","${new Date().toISOString().slice(0, 19).replace('T', ' ')}" , "ACTIVE")`;
+        sql = `insert into order_info values("${order_id}" , "${transaction_id}" , ${total_price}, ${user_id},"${Shipping_Add}","${new Date().toISOString().slice(0, 19).replace('T', ' ')}" , "ACTIVE")`;
         mysql.query(sql); // here we are creating the new order info
         cart.forEach((item)=>{
             sql = `insert into order_items values("${order_id}" , ${item.p_id} , ${item.qty})`;

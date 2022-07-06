@@ -172,7 +172,7 @@ ul{
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            products
+            Category
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="display.php?id=1">Electronics</a></li>
@@ -191,9 +191,7 @@ ul{
 
       <ul class="navbar-nav  mb-2 mb-lg-0">
       <li class="nav-item dropdown" >
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
-         <%=username%>
-        </a>
+        <a class="nav-link dropdown-toggle username" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;"><%=username%></a>
         
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="index.php">My Profile</a></li>
@@ -201,9 +199,14 @@ ul{
           <li><a class="dropdown-item" href="#">History</a></li>
 
           <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="forget_pas.php">Forget Password</a></li>
-          <li>
-               <a class="dropdown-item" href="logout.php">Logout</a>
+          <li id="login">
+            <a class="dropdown-item" href="/login">Log In</a>
+          </li>
+          <li id="register">
+            <a class="dropdown-item" href="/register">Register</a>
+          </li>
+          <li id="logout">
+              <a class="dropdown-item" href="/logout">Logout</a>
          </li>
         </ul>
         
@@ -259,12 +262,6 @@ ul{
 
   <h3 class="font-weight-bold" style="color:lightgreen"> Catagories</h3><br>
   <dl>
-<!--
-  <dt class="navbar-brand">   Electronics  </dt><br>
-  <dt> <a class="navbar-brand" href="#"> Furnitures</a>   </dt><br>
-  <dt>  <a class="navbar-brand" href="#"> Clothes</a>   </dt><br>
-  <dt>  <a class="navbar-brand" href="#">  Home Appliances</a>   </dt><br>
- -->
  <dd class="navbar-brand"> Electronics </dd>
   <dd class="navbar-brand"> Furnitures </dd>
   <dd class="navbar-brand">Clothes</dd>
@@ -512,6 +509,17 @@ function reset() {
         }
       })
     })
+
+    const account = document.getElementsByClassName('username')[0];
+    console.log(account.innerHTML)
+    if(account.innerHTML == ""){
+      account.innerHTML = "Accounts";
+      document.querySelector('#logout').style.display = "none";
+    }else{
+      document.querySelector('#register').style.display = "none";
+      document.querySelector('#login').style.display = "none";
+    }
+
   </script>
 </body>  
  </html>  

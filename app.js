@@ -27,8 +27,35 @@ app.use('/login' , loginRouter);
 
 const transactionRouter = require('./Routers/transactionRouter');
 app.use('/transaction' , transactionRouter);
+
+const orderHistoryRouter = require('./Routers/orderHistoryRouter');
+app.use('/order_history',orderHistoryRouter);
+
+const invoiceRouter = require('./Routers/invoiceRouter');
+app.use('/invoice' , invoiceRouter);
+
 const apiRouter = require('./Routers/api');
 app.use('/api/' , apiRouter);
+
+
+//  Admin routers
+
+
+const adminDashboard = require('./Routers/admin/dashboard');
+app.use('/adminDashboard' , adminDashboard);
+
+
+const userList = require('./Routers/admin/userList');
+app.use('/userList' , userList);
+
+const productList = require('./Routers/admin/productList');
+app.use('/productList' , productList);
+
+const orders = require('./Routers/admin/orders');
+app.use('/orders' , orders);
+
+const addProduct  = require('./Routers/admin/addProduct');
+app.use('/addProduct' , addProduct);
 
 
 app.get('/cart' , middleware ,  (req,res , next)=>{
@@ -57,7 +84,6 @@ app.get('/cart' , middleware ,  (req,res , next)=>{
         res.render('cart' , payload);
     })
 });
-
 
 
 app.listen(port , ()=>{

@@ -18,4 +18,7 @@ router.use('/clearCart' ,clearCart);
 const removeCartItem = require('./api/removeCartItem');
 router.use('/removeCartItem' ,removeCartItem);
 
+const removeProduct =require('./api/removeProduct');
+router.use('/removeProduct' , removeProduct);
+
 module.exports = router;
