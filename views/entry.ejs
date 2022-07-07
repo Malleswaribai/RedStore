@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="style.css">
+<title>Home</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
@@ -27,7 +28,7 @@
          <a class="nav-link active" aria-current="page" href="/">Home</a>
        </li>
        <li class="nav-item">
-         <a class="nav-link active" aria-current="page" href="/about">About</a>
+         <a class="nav-link active" aria-current="page" href="/#">About</a>
        </li>
        <li class="nav-item">
          <a class="nav-link active" aria-current="page" href="#">Contact</a>
@@ -35,45 +36,23 @@
        <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="/product">Product</a>
        </li>
-       <!-- <li class="nav-item dropdown">
-         <a class="nav-link dropdown-toggle" href="/product" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           Products
-         </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-           <li><a class="dropdown-item" href="/product" >Electronics</a></li>
-          
-           <li><a class="dropdown-item" href="product.php">Furnitures</a></li>
-           <li><a class="dropdown-item" href="product.php">Clothing</a></li>
-         </ul> 
-       </li> -->
-       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Order
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="/order_history" >History</a></li>
-         
-          <li><a class="dropdown-item" href="/invoice">Invoice</a></li>
-
-        </ul>
-      </li>
+       <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="/order_history">Orders</a>
+       </li>
+       
      </ul>
-     <form class="d-flex">
-       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" required>
-       <button class="btn btn-outline-success" type="submit">Search</button>
-     </form>
      
        <li class="nav-item dropdown">
        <a class="col nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
        <span id = "username"><%= username %></span>
        </a>
        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-         <li><a class="dropdown-item" href="/index">Profile</a></li>
+         <li><a class="dropdown-item" href="/#">Profile</a></li>
         
-         <li><a class="dropdown-item" href="#">History</a></li>
+         <li><a class="dropdown-item" href="/order_history">History</a></li>
          <li><hr class="dropdown-divider"></li>
          <li><a class="dropdown-item" href="forget_pas.php">Forget Password</a></li>
-         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+         <li><a class="dropdown-item" href="/logout">Logout</a></li>
        </ul>
 
        <li>

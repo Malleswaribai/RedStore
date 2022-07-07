@@ -28,8 +28,8 @@ router.get('/' , (req,res)=>{
 })
 router.post('/', upload.single('image') ,(req,res)=>{
     // here req.file will store the data regarding the file uploded
-    console.log(req.file);
-    console.log(req.body);
+    // console.log(req.file); here the file will contain the 
+    // console.log(req.body);
     var p_name = req.body.p_name , p_price = req.body.p_price , p_category = req.body.p_category , p_brand = req.body.p_brand , p_image = req.file.filename;
     var sql = `insert into product (p_category,p_brand,p_name,p_price,p_image)values(${p_category} , ${p_brand} , "${p_name}" ,${p_price} , "${p_image}")`;
     mysql.query(sql);

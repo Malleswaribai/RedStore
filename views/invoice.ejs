@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,300&display=swap" rel="stylesheet">
-
+<title>Invoice</title>
 <link rel="stylesheet" type="text/css" href="../style.css">
 
 </head>
@@ -24,39 +24,20 @@
     
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="entry.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="about.php">About</a>
+          <a class="nav-link active" aria-current="page" href="#">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Contact</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Products
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="product.php" >Electronics</a></li>
-           
-            <li><a class="dropdown-item" href="product.php">Furnitures</a></li>
-            <li><a class="dropdown-item" href="product.php">Clothing</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Order
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="order_history.php" >History</a></li>
-           
-            <li><a class="dropdown-item" href="invoice.php">Invoice</a></li>
-          
-          </ul>
-        </li>
-       
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/product">Product</a>
+         </li>
+      </ul>
 
         <li class="logo"><a class="navbar-brand kol" href="#"><img src="images1/logo-white.png"></a></li>
       </ul>
@@ -79,7 +60,7 @@
 
 
 <div class="second-nav">
-  <h3><b><a href="entry.php">Home  </a>  <span><i class="fa fa-angle-right"></i>  </span>  <a href="about.php"> Invoice</a></b></h3>
+  <h3><b><a href="/">Home  </a>  <span><i class="fa fa-angle-right"></i>  </span>  <a href="#"> Invoice</a></b></h3>
 </div>
 
 <div class="text">
@@ -152,7 +133,7 @@
 
 <div class='total'>
   <h2>Invoice Total</h2>
-  <h1><b> $total   </b></h1>
+  <h1><b> $<%= totalAmount %>   </b></h1>
 </div>
 
 

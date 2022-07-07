@@ -64,27 +64,67 @@
 <div align="center"><img src="images1/logo-white.png"></div>
 <h3 align="center">Register</h3>  
 <br />  
-<form method="post" action="/">  
+<!-- <form method="post" action="/register" onsubmit="return validateForm()" enctype="multipart/form-data" >   -->
      <label>Enter Username</label>  
-     <input type="text" name="username" class="form-control" placeholder="Enter Username" required />  
+     <input type="text" name="username" id="name"  class="form-control" placeholder="Enter Username" required />  
      <br />  
      <label>Enter Password</label>  
-     <input type="password" name="password" class="form-control"  placeholder="Enter Password" required/>  
+     <input type="password" name="password" id="pass" class="form-control"  placeholder="Enter Password" required/>  
      <br /> 
      <label>Confirm Password</label>  
-     <input type="password" name="confirmpassword" class="form-control"  placeholder="Confirm Password" required/>  
+     <input type="password" name="confirmpassword" id="confPass" class="form-control"  placeholder="Confirm Password" required/>  
      <br /> 
      <label>Enter Email</label>  
-     <input type="email" name="email" class="form-control"  placeholder="Enter email " required/>  
+     <input type="email" name="email" id="email" class="form-control"  placeholder="Enter email " required/>  
      <br /> 
      <p align="center">By registering, you agree to our <a href="#">User Agreement</a> & <a href="#">privacy policy</a></p> 
      <div class="sub">
-     <input type="submit"  value="Register" class="btn btn-danger" />
-     </div>  
+     <!-- <input type="submit" onclick="validateForm()"  value="Register" class="btn btn-danger" /> -->
+     <center><button class = "btn btn-danger" onclick="validateForm()">Register</button></center>
+     <!-- <input type="button"  value="Register" class="btn btn-danger" />  -->
+    </div>  
      <br />  
-     <p align="center">Already registered ? <a href="index.php?action=login">Log In now</a>.</p>  
-</form> 
+     <p align="center">Already registered ? <a href="/login">Log In now</a>.</p>  
+<!-- </form>  -->
 </div>
 </body>  
+
+<script>
+  function validateForm(){
+    var username = $('#name').val().trim();
+    var pass = $('#pass').val().trim();
+    var confPass = $('#confPass').val().trim();
+    var email = $('#email').val();
+    if(username == "") {
+      alert('Enter valid Name')
+      return false;
+    }else if(pass == ""){
+      alert('Please Enter Non-Emapy Password');
+    }
+    else if(pass != confPass){
+      alert('Enter the same password');
+    }
+    else{
+      $.ajax({
+        url:'/api/register',
+        data:{
+          username:username,
+          password:pass,
+          email:email
+        },
+        type:"POST",
+        success:(code)=>{
+          if(code == "success"){
+            window.location.href = "/";
+          }else if(code == "userExt"){
+            alert('UserName in Use');
+          }else if(code == "emailExt"){
+            alert('Email In Use');
+          }
+        }
+      })
+    }
+  }
+</script>
 
 <%- include('footer') %>

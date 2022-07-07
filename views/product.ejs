@@ -162,39 +162,61 @@ ul{
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="entry.php">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="about/about.php">About</a>
+          <a class="nav-link active" aria-current="page" href="#">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Contact</a>
         </li>
+        <!-- Category Filter -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Category
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="display.php?id=1">Electronics</a></li>
-           
-            <li><a class="dropdown-item" href="display.php?id=2">Furnitures</a></li>
-           <!-- <li><hr class="dropdown-divider"></li>   -->
-            <li><a class="dropdown-item" href="display.php?id=3">Clothing</a></li>
-            <li><a class="dropdown-item" href="display.php?id=4">Home Appliances</a></li>
+          <ul class="dropdown-menu" id="category-filter" aria-labelledby="navbarDropdown">
+            <li><span class="dropdown-item">ALL</span></li>
+            <% category.forEach((item)=>{ %>
+              <li><span class="dropdown-item"><%= item.category_name.toUpperCase() %></span></li>  
+            <% }) %>
           </ul>
         </li>
+        <!-- brand Filter -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Brand
+          </a>
+          <ul class="dropdown-menu" id="brand-filter" aria-labelledby="navbarDropdown">
+            <li><span class="dropdown-item">ALL</span></li>
+            <% brands.forEach((item)=>{ %>
+              <li><span class="dropdown-item"><%= item.brand_name.toUpperCase() %></span></li>  
+            <% }) %>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sort By
+          </a>
+          <ul class="dropdown-menu" id="sort" aria-labelledby="navbarDropdown">
+            <li><span class="dropdown-item">Low to High</span></li>
+            <li><span class="dropdown-item">High To Low</span></li>
+          </ul>
+        </li>
+
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" onkeyup="search(this.value)" placeholder="Search" aria-label="Search" required>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <div class="d-flex">
+        <input class="form-control me-2" type="search" onkeyup="myFunction()" oninput="myFunction()" onchange="myFunction()"   id="search"  placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" onclick="voice()" >Search</button>
+      </div>
 
       <ul class="navbar-nav  mb-2 mb-lg-0">
       <li class="nav-item dropdown" >
         <a class="nav-link dropdown-toggle username" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;"><%=username%></a>
         
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="index.php">My Profile</a></li>
+          <li><a class="dropdown-item" href="#">My Profile</a></li>
          
           <li><a class="dropdown-item" href="#">History</a></li>
 
@@ -253,61 +275,6 @@ ul{
   width: 250px;
   background: white;
 }
-
-</style>
-
-<div class="navsec">
-  
-  <div class="sidebar" >
-
-  <h3 class="font-weight-bold" style="color:lightgreen"> Catagories</h3><br>
-  <dl>
- <dd class="navbar-brand"> Electronics </dd>
-  <dd class="navbar-brand"> Furnitures </dd>
-  <dd class="navbar-brand">Clothes</dd>
-  <dd class="navbar-brand">Home Appliances</dd>
- 
-
-  </dl>
- 
-
-
-  <h3 class="font-weight-bold" style="color:lightgreen"> Brands</h3><br>
-  <dl>
-  <dd class="navbar-brand"> Apple </dd>
-  <dd class="navbar-brand"> Samsung </dd>
-  <dd class="navbar-brand">Asley</dd>
-  <dd class="navbar-brand">Kartell</dd>
-  <dd class="navbar-brand"> Nike </dd>
-<dd class="navbar-brand"> Adidas </dd>
-<dd class="navbar-brand"> LG </dd>
-<dd class="navbar-brand"> Whirlpool </dd>
-
-
-</dl>
-
-
-  
-   </div>
-
-   <script>
-    function search(v) {
-  reset();
-
-  var out = document.querySelectorAll('img:not([alt*="' + v + '"])');
-  [].forEach.call(out, function(x) {
-    x.style.display = 'none';
-  });
-}
-
-function reset() {
-  [].forEach.call(document.querySelectorAll('img'), function(x) {
-    x.removeAttribute('style');
-  });
-}
-</script>
-
-<style>
 .setinline{
    display: inline;
    padding : 2rem;
@@ -336,17 +303,19 @@ function reset() {
 }
 
 </style>
+
+<div class="navsec" id="collection">
      <%    products.forEach((item)=>{ %>
-          <div class='content1' >
+          <div class='content1 products' p_name = "<%= item.p_name%>" p_price = <%=item.p_price %> p_brand = "<%= item.p_brand %>" p_category = "<%=item.category_name %>">
             <div class='setinline'> 
-            <a href='product_details.php?p=$pro_id'><div class='product'>
+            <a href='#'><div class='product'>
             <div class='product-img'>
-              <img src='images/<%= item.p_image%>' style='max-height: 170px;' alt='$pro_cat'>
+              <center><img src='images/<%= item.p_image%>' style='max-height: 170px;' alt='missing Image'></center>
             </div>
             </a>
             <div class='product-body' style='text-align:center'>
               <p class='product-category'><%= item.category_name %></p>
-              <h5  class='product-name header-cart-item-name'><a href='product_details.php?p=$pro_id'><%= item.p_name %></a></h5>
+              <h5  class='product-name header-cart-item-name'><a href='#'><%= item.p_name %></a></h5>
               <div class='rating'>
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star'></i>
@@ -354,7 +323,7 @@ function reset() {
                 <i class='fa fa-star'></i>
                 <i class='fa fa-star-o'></i>
               </div>
-              <h6  class='product-price header-cart-item-info' style='color:red;font-size:20px;'><%= item.p_price%><del class='product-old-price' style='font-size:13px;'>$999.00</del></h6>
+              <h6  class='product-price header-cart-item-info' style='color:red;font-size:20px;'>$<%= item.p_price%><del class='product-old-price' style='font-size:13px;'>$999.00</del></h6>
             <div class='product-btns' style='text-align:center'>
               
               </div>
@@ -374,80 +343,6 @@ function reset() {
   </div>
  
  
-<div class="line"></div>
-<br><br>
-<!--    testimonial -->
-
-
-<div class="testimonial" >
-    <div class="small-container" >
-      <div class="row">
-        <div class="col-3">
-          <i class="fa fa-quote-left"></i>
-          <p><b>I am so glad, to be a part of this amazing RedStore. It's been 5 years now and i didn't received any bad product. Like the best online shopping website ever.</b></p>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <img src="images1/user-1.png">
-          <h3><b>Sean Parker</b></h3>
-        </div>
-        <div class="col-3">
-          <i class="fa fa-quote-left"></i>
-          <p><b>To be honest, I have been wasting time doing shoping from stores. It's so bazzared and frustrated at the same time. Now my life is so easy seriously Thanking you.</b></p>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star-o"></i>
-          </div>
-          <img src="images1/user-2.png">
-          <h3><b>Dev Roy</b></h3>
-        </div>
-        <div class="col-3">
-          <i class="fa fa-quote-left"></i>
-          <p><b>I never liked to shop from Online shopping websites. It's is easy isn't it, I never trusted one until i became a member of this fantastic online shop. Every Product I have bough is same as they show in pictures, so satisfied.</b></p>
-          <div class="rating">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-          <img src="images1/user-3.png">
-          <h3><b>Hermioni Granger</b></h3>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-----------------------------brands------------------------------------------------>
-
-  <div class="brands">
-    <div class="small-container">
-      <div class="row">
-        <div class="col-5">
-          <img src="images1/logo-godrej.png">
-        </div>
-        <div class="col-5">
-          <img src="images1/logo-oppo.png">
-        </div>
-        <div class="col-5">
-          <img src="images1/logo-coca-cola.png">
-        </div>
-        <div class="col-5">
-          <img src="images1/logo-paypal.png">
-        </div>
-        <div class="col-5">
-          <img src="images1/logo-philips.png">
-        </div>
-      </div>
-    </div>
-  </div>
 
 <!--footer-->
 
@@ -485,6 +380,7 @@ function reset() {
   <!-- Script Section -->
 
   <script>
+    localStorage.clear();
     const addToCart = $('.addToCart');
     addToCart.click((event)=>{
       const pro_id = $(event.target).attr('id');
@@ -520,6 +416,69 @@ function reset() {
       document.querySelector('#login').style.display = "none";
     }
 
+
+    // search
+    function myFunction() {
+        var products = $('.products');
+        var n = products.length;
+        var search = $('#search').val().toLowerCase();
+        console.log(search)
+        for(var i = 0 ;  i<n;i++){
+          var element = $(products.get(i)).hide();
+          var p_name = element.attr('p_name').toLowerCase();
+          var p_brand = element.attr('p_brand').toLowerCase();
+          var p_category = element.attr('p_category').toLowerCase();
+          if(localStorage.p_category == null || localStorage.p_category == 'all' || localStorage.p_category == p_category){
+            if(localStorage.p_brand == null || localStorage.p_brand == 'all' || localStorage.p_brand == p_brand){
+              if(p_name.includes(search) || p_brand.includes(search) || p_category.includes(search)){
+                element.show();
+              }else element.hide();
+            }else element.hide();
+          }else element.hide();
+        }
+    }
+    $('#category-filter li').click((event)=>{
+        var category = event.target.innerHTML.toLowerCase();
+        console.log(category)
+        localStorage.p_category = category;
+        myFunction();
+    })
+
+    $('#brand-filter li').click((event)=>{
+        var brand = event.target.innerHTML.toLowerCase();
+        localStorage.p_brand = brand;
+        myFunction();
+    })
+
+    $('#sort li').click((event)=>{
+      var toSort = document.getElementById('collection').children;
+      toSort = Array.prototype.slice.call(toSort, 0);
+        if(event.target.innerHTML.toLowerCase() == 'low to high'){
+          toSort.sort(function(a, b) {
+              return a.getAttribute('p_price') - b.getAttribute('p_price')
+          });
+        }else {
+          toSort.sort(function(a, b) {
+              return b.getAttribute('p_price') - a.getAttribute('p_price')
+          });
+        }
+        var parent = document.getElementById('collection');
+        parent.innerHTML = "";
+
+        for(var i = 0, l = toSort.length; i < l; i++) {
+            parent.appendChild(toSort[i]);
+        }
+    })
+    function voice(){
+        var recognisation = new webkitSpeechRecognition();
+        recognisation.lang = 'en-GB';
+        recognisation.start();
+        recognisation.onresult = function(event){
+            console.log(event.results[0][0].transcript);
+            document.getElementById('search').value = event.results[0][0].transcript;
+            myFunction();
+        }
+    }
   </script>
 </body>  
  </html>  

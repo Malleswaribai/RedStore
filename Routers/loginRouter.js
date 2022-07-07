@@ -2,6 +2,7 @@ const express = require('express');
 const mysql = require('../database');
 const router = express.Router();
 router.get('/' , (req,res)=>{
+    req.session.user = null;
     res.render('login');
 })
 router.post('/' , (req , res)=>{

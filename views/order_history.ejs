@@ -22,7 +22,7 @@
 }
 
 .table-container table{
-    width:100%;
+    width:90%;
     background:#fff;
     color: #222;
     padding: 24px;
@@ -64,7 +64,7 @@
    <th>Address</th>
    <th>Status</th>
    <th>Total Amount</th>
-   
+   <th>Invoice</th>
    
    </thead>
    
@@ -78,7 +78,7 @@
                     <td><%= item.Address %></td>
                     <td> <%= item.order_status %></td>
                     <td> $<%= item.total_price %></td>
-                   
+                    <td><a href="/invoice/<%= item.order_id %>"><button class="btn btn-secondary" style="font-size: 15px;">invoice</button></a></td>
                    </tr>
             <% }) %>
    
