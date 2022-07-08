@@ -44,7 +44,7 @@
       
       <li class="nav-item dropdown">
         <a class="log nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-       Jayaramm
+          <%= username %>
         </a>
        
       </li>
@@ -92,7 +92,7 @@
   <div class='invoice-2'>
     <ul>
       <li>BILLED TO</li>
-      <li> Jayaram </li>
+      <li> <%= order.name %> </li>
       <li> <%= order.Address %>  </li>
       <li>  <%= email %>  </li>
     </ul>

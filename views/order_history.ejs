@@ -73,8 +73,8 @@
                 <tr class='cross'>
                     <td><%= item.order_id %></td>
                    <td style='color:red'> <%= item.transaction_id %></td>
-                    <td> <%= item.order_date.getDate()+'/'+Number(item.order_date.getMonth()+1) +'/' + item.order_date.getFullYear() %></td>
-                    <td> Jayaram</td>
+                    <td> <%= item.order_date.getDate()+'/'+Number(item.order_date.getMonth()+1) +'/' + item.order_date.getFullYear()%></td>
+                    <td> <%= item.name %></td>
                     <td><%= item.Address %></td>
                     <td> <%= item.order_status %></td>
                     <td> $<%= item.total_price %></td>

@@ -15,7 +15,7 @@ router.get('/:order_id' ,middleware, (req,res,next)=>{
             cart.forEach((item)=>{
                 totalAmount+=item.Amount;
             })
-            return res.render('invoice' ,{order:result[0] , cart:cart,totalAmount:totalAmount, email:req.session.user.email});
+            return res.render('invoice' ,{order:result[0] , cart:cart,totalAmount:totalAmount, email:req.session.user.email , username:req.session.user.username});
         })
     })
 })
