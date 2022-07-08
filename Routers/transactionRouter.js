@@ -5,7 +5,7 @@ const mysql = require('../database');
 const router = express.Router();
 
 router.get('/' , middleware , (req,res,next)=>{
-    res.render('transaction');
+    res.render('Transaction');
 })
 router.post('/' , (req,res)=>{
     var user_id = req.session.user.user_id; 
