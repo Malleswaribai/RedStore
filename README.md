@@ -3,15 +3,18 @@
 * Implemented features like adding items to the Cart , Checking out the Cart , Invoice Generation and Order History for the customer .
 * Implemented The feature of filtering the products based on product category and brand .
 * Integrated the feature of Voice based and text searching for products .
-* User can search the products according to their product name or category or brand name.
-* Created admin panel where admin can add the products or remove the products or track the order and can change the order status.
+* User can search the products according to the product name or category or brand name.
+* Created admin panel where admin can add the products or remove the products or change the status and can change the order status.
+* User can track their order on Order History Page.
 * Deployed using Heroku and AWS RDS.
 
 ## Hidden Features 
-* Here I have used Ajax Requests for better user experience . 
+* Here I have used Ajax Requests for better user experience.
 * Used Session storage to store the session data like user data who is logged in.
-* Used Local Storage of browser while applying filters one category , brand and then search .
-* Using ajax this web application will give feel of a react application .
+* Also provided Email facility for placing order and user registration. 
+* Used Local Storage of browser while applying filters on category and brand name.
+* User sort the Products according to the price of products.
+* Using ajax this web application will give feel like a react application .
 
 ## Tech Stack
 #### Back-End : Node.js
