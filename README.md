@@ -1,20 +1,21 @@
 # RedStore
-* Fully Fledged Web Application For Online Shopping where User Can order products .
-* Implemented features like adding items to the Cart , Checking out the Cart , Invoice Generation and Order History for the customer .
-* Implemented The feature of filtering the products based on product category and brand .
-* Integrated the feature of Voice based and text searching for products .
-* User can search the products according to the product name or category or brand name.
+* RedStore is a Fully Fledged Web Application for Online Shopping where Users Can order products.
+* Implemented features like adding items to the Cart, Checking out the Cart, Invoice Generation, and Order History for the customer.
+* Implemented The feature of filtering the products based on product category and brand.
+* Integrated the feature of Voice based and text searching for products.
+* Users can search the products according to the product name or category or brand name.
 * Created admin panel where admin can add the products or remove the products or change the status and can change the order status.
-* User can track their order on Order History Page.
+* User can track their order on the Order History Page.
 * Deployed using Heroku and AWS RDS.
+
 
 ## Hidden Features 
 * Here I have used Ajax Requests for better user experience.
 * Used Session storage to store the session data like user data who is logged in.
-* Also provided Email facility for placing order and user registration. 
+* Also provided Email facility for order confirmation and user registration. 
 * Used Local Storage of browser while applying filters on category and brand name.
-* User sort the Products according to the price of products.
-* Using ajax this web application will give feel like a react application .
+* Users can sort the products according to the price of products.
+* Using ajax, this web application gives feel like a react application .
 
 ## Tech Stack
 #### Back-End : Node.js
