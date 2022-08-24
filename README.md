@@ -6,3 +6,7 @@
 * Deployed using Heroku and AWS RDS.
 
 Live Url : https://redstore1.herokuapp.com/
+
+# Product Page
+
+![product_page](https://user-images.githubusercontent.com/76204860/186340641-59720916-252c-4eb6-8a57-58817ab20f6e.png)
