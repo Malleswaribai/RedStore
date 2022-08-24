@@ -7,6 +7,19 @@
 * Created admin panel where admin can add the products or remove the products or track the order and can change the order status.
 * Deployed using Heroku and AWS RDS.
 
+## Hidden Features 
+* Here I have used Ajax Requests for better user experience . 
+* Used Session storage to store the session data like user data who is logged in.
+* Used Local Storage of browser while applying filters one category , brand and then search .
+* Using ajax this web application will give feel of a react application .
+
+## Tech Stack
+#### Back-End : Node.js
+#### Front-End : Ejs , Boot Strap and JavaScript
+#### Database : MySql 
+#### Frame Works : express , jQuery , ajax 
+#### Deplyoment : Heroku (Node Server) and AWS RDS(Mysql DataBase)
+
 Live Url : https://redstore1.herokuapp.com/
 
 # Pages on the Site:
@@ -25,6 +38,7 @@ Live Url : https://redstore1.herokuapp.com/
 * Remove Product Page
 * Order status page.
 
+Below I have attached the snap short of every page.
 
 ### Home Page
 
