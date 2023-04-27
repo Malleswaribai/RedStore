@@ -24,8 +24,6 @@
 #### Frame Works : express , jQuery , ajax 
 #### Deplyoment : Heroku (Node Server) and AWS RDS(Mysql DataBase)
 
-Live Url : https://redstore1.herokuapp.com/
-
 # Pages on the Site:
 ## Guest User Pages:
 * Home Page 
